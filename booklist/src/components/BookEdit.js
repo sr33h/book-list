@@ -14,9 +14,16 @@ function BookEdit({ book, onSubmit }) {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <label>Title</label>
-        <input value={title} onChange={handleChange}></input>
+      <form style={{
+        backgroundColor:'#fff'
+      }} onSubmit={handleSubmit}>
+        
+        <input style={{
+          border:0,
+          background:'transparent',
+          fontSize:'15px'
+          
+        }} value={title} onChange={handleChange}></input>
         <button>Save</button>
       </form>
     </>

@@ -9,17 +9,23 @@ function BookCreate({ onCreate }) {
 
   function handleSubmit(event) {
     event.preventDefault();
-    onCreate(title);
-    setTitle("");
+    if(title) {
+      onCreate(title);
+      setTitle("");
+    }
+    
   }
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <label>Title : </label>
-        <input value={title} onChange={handeChange}></input>
+      <form style = {{position:'relative'}} onSubmit={handleSubmit}>
+        <label className="title">Enter a text... </label>
+        <input className="input" value={title} onChange={handeChange}></input>
 
-        <button>Create</button>
+        <button style = {{position:'absolute',
+                          right: '0px',
+                          borderTopLeftRadius:0,
+                          borderBottomLeftRadius:0                    }} className="button">Create</button>
       </form>
     </div>
   );

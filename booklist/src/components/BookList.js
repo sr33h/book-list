@@ -7,7 +7,12 @@ function BookList({ books, onDelete, onEdit }) {
     );
   });
 
-  return <div>{renderedBooks}</div>;
+  return <div style={{
+    display:'flex',
+    flexWrap:'wrap'
+  }}>
+    
+    {renderedBooks}</div>;
 }
 
 export default BookList;

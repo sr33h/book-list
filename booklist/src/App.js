@@ -2,9 +2,12 @@ import { useState } from "react";
 import React from "react";
 import BookCreate from "./components/BookCreate";
 import BookList from "./components/BookList";
+import 'bulma/css/bulma.css'
 let nextid = 0;
 function App() {
   const [books, setBooks] = useState([]);
+
+  
 
   const editBook = (id, newtitle) => {
     const updatedBooks = books.map((book) => {
@@ -29,11 +32,29 @@ function App() {
     setBooks(updatedBooks);
   }
 
-  return (
-    <div style={{}}>
+  return (<>
+    <div style={{
+      position:"fixed",
+      bottom:'0',
+      left:'0',
+      height:'40vh',
+      width:'100%',
+      display:'flex',
+      alignItems:'center',
+      justifyContent:'center',
+      backgroundColor:'#cc9944',
+      margin:'0'
+    }}>
       <BookCreate onCreate={createBook} />
+      </div>
+      
       <BookList books={books} onDelete={deleteBook} onEdit={editBook} />
-    </div>
+
+      <div style={{height:'40vh',
+      width:'100%'}}></div>
+     
+      
+      </>
   );
 }
 
