@@ -3,11 +3,9 @@ import React from "react";
 import BookCreate from "./components/BookCreate";
 import BookList from "./components/BookList";
 import 'bulma/css/bulma.css'
-let nextid = 0;
+let nextid = 1;
 function App() {
-  const [books, setBooks] = useState([]);
-
-  
+  const [books, setBooks] = useState([]);  
 
   const editBook = (id, newtitle) => {
     const updatedBooks = books.map((book) => {
@@ -42,8 +40,9 @@ function App() {
       display:'flex',
       alignItems:'center',
       justifyContent:'center',
-      backgroundColor:'#cc9944',
-      margin:'0'
+      backgroundColor:'#99ab77',
+      margin:'0',
+      zIndex:'1000'
     }}>
       <BookCreate onCreate={createBook} />
       </div>

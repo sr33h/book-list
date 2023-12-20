@@ -17,17 +17,30 @@ function BookCreate({ onCreate }) {
   }
 
   return (
-    <div>
-      <form style = {{position:'relative'}} onSubmit={handleSubmit}>
-        <label className="title">Enter a text... </label>
-        <input className="input" value={title} onChange={handeChange}></input>
+    <>
+      <form style = {{width:'50vw'}} onSubmit={handleSubmit}>
+        <div style={{display:'flex'}}>
+        <input 
+        className="input" 
+        value={title} 
+        onChange={handeChange}
+        placeholder="Enter a title and press Enter/Create"
+        style={{
+                borderTopRightRadius:0,
+                borderBottomRightRadius:0 }}></input>
 
-        <button style = {{position:'absolute',
-                          right: '0px',
-                          borderTopLeftRadius:0,
-                          borderBottomLeftRadius:0                    }} className="button">Create</button>
+        <button style = {{borderTopLeftRadius:0,
+                          borderBottomLeftRadius:0,
+                          fontFamily:'cursive',
+                          backgroundColor:'#56dddd',
+                          border:'none'
+                             }} 
+                          className="button">Create</button>
+          
+        </div>
+        
       </form>
-    </div>
+    </>
   );
 }
 

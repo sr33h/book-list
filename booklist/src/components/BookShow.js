@@ -17,7 +17,7 @@ function BookShow({ book, onDelete, onEdit }) {
     onEdit(id, newtitle);
   };
 
-  let content = <h3>{book.title}</h3>;
+  let content = <h2 style={{fontWeight:'bold', width:'200px',overflow:'clip'}}>{book.id}. {book.title}</h2>;
   if (editMode) {
     content = <BookEdit book={book} onSubmit={handleSubmit} />;
   }
@@ -35,8 +35,18 @@ function BookShow({ book, onDelete, onEdit }) {
     }}>
         <img alt="books" src={`https://picsum.photos/seed/${book.id}/200`}></img>
       {content}
-      <button onClick={handleEditClick}>Edit</button>
-      <button onClick={handleDeleteClick}>Delete</button>
+      <button 
+      className="button" 
+      onClick={handleEditClick} 
+      style={{
+        backgroundColor:'#5699dd',
+        margin:'8px 8px 0 0'}} >Edit</button>
+      <button 
+      className="button" 
+      onClick={handleDeleteClick} 
+      style={{
+        backgroundColor:'#de6778',
+        margin:'8px 0 0 0'}} >Delete</button>
     </div>
   );
 }

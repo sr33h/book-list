@@ -8,6 +8,7 @@ function BookList({ books, onDelete, onEdit }) {
   });
 
   return <div style={{
+    padding:'10px',
     display:'flex',
     flexWrap:'wrap'
   }}>
