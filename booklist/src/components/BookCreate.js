@@ -31,9 +31,9 @@ function BookCreate({ onCreate }) {
 
         <button style = {{borderTopLeftRadius:0,
                           borderBottomLeftRadius:0,
-                          fontFamily:'cursive',
-                          backgroundColor:'#56dddd',
-                          border:'none'
+                          backgroundColor:'#33ab44',
+                          border:'none',
+                          color:'#efffef'
                              }} 
                           className="button">Create</button>
           
