@@ -3,14 +3,30 @@ import React from "react";
 import BookCreate from "./components/BookCreate";
 import BookList from "./components/BookList";
 import 'bulma/css/bulma.css'
+import axios from 'axios'
+import { useEffect } from "react";
+
 let nextid = 1;
 function App() {
   const [books, setBooks] = useState([]);  
 
-  const editBook = (id, newtitle) => {
+const fetchBooks = async () => {
+  const response = await axios.get('http://localhost:3001/books');
+  setBooks(response.data);
+}
+
+useEffect( () => {
+  fetchBooks();
+}, []);
+
+  const editBook = async (id, newtitle) => {
+
+    const response = await axios.put(`http://localhost:3001/books/${id}`, {
+      title: newtitle
+    })
     const updatedBooks = books.map((book) => {
       if (book.id === id) {
-        return { ...book, title: newtitle };
+        return { ...book, ...response.data };
       } else {
         return book;
       }
@@ -19,13 +35,21 @@ function App() {
     setBooks(updatedBooks);
   };
 
-  function createBook(title) {
-    const updatedBooks = [...books, { id: nextid++, title }];
+  async function createBook(title) {
+
+  const response = await axios.post('http://localhost:3001/books', {
+    title
+  });
+
+  
+   const updatedBooks = [...books, response.data];
     setBooks(updatedBooks);
     console.log(nextid);
   }
 
-  function deleteBook(id) {
+  async function deleteBook(id) {
+
+    await axios.delete(`http://localhost:3001/books/${id}`);
     const updatedBooks = books.filter((book) => book.id !== id);
     setBooks(updatedBooks);
   }
